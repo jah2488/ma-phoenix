@@ -1,0 +1,36 @@
+section.hero.is-dark.is-medium
+  .hero-body
+    .container.has-text-centered.is-fullwidth
+      h1.title Omni Search
+       form_tag :search, method: :GET
+        p.control.has-addons.is-fullwidth.has-text-centered
+         div style="margin: 0 auto; width: 88%;"
+          search_field_tag :query, " ", placeholder: "Find an advisor, company, or industry", class: "input is-medium is-fullwidth"
+
+.column
+  .content
+    h1.title Transactions
+
+    section.section
+      table.datatable.table
+        thead
+          tr
+            th Announcement Date
+            th Target Company
+            th Target Company Advisors
+            th Acquiring Company
+            th Acquiring Company Advisors
+            th Deal Value (in Millions)
+            th Country
+            th Industry
+        tbody
+          = for acquisition <- @acquisitions do
+            tr
+              td = acquisition.announcement_date
+              td = acquisition.company.name
+              td = "???"
+              td Yo
+              td Yo
+              td = acquisition.deal_value
+              td = acquisition.country.name
+              td = acquisition.industry.name
